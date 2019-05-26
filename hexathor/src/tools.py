@@ -10,11 +10,11 @@ import statsmodels.api as sm
 from scipy import signal
 class Tools:
 	def get_prices(from_date, ticker):
-		y, m, d = from_date
-		start = datetime.datetime(y, m, d)
+		#y, m, d = from_date
+		#start = datetime.datetime(y, m, d)
 		end = datetime.datetime.now()
 		tic = yf.Ticker(ticker)
-		index = yf.download(ticker, start=start, end=end)
+		index = yf.download(ticker, start=from_date, end=end)
 		name = tic.info['shortName']
 		prices = index['Close']
 		prices = prices.dropna()
@@ -27,6 +27,7 @@ class Tools:
 			X.append(data[i:i+window])
 			y.append(data[window+i])
 		return np.asarray(X), np.asarray(y)
+
 
 	def normalize(data):
 		ymin = data.min()
@@ -60,12 +61,12 @@ class Tools:
 	# based on "the future of time series" paper, about santa fe competition that took place in 1992
 	def NMSE(true, predicted):
 		nominator = []
-		for x in range(0, len(real)):
-			error = (real[x] - predicted[x]) ** 2
+		for x in range(0, len(true)):
+			error = (true[x] - predicted[x]) ** 2
 			nominator.append(error)
 		denominator = []
-		for x in range(1, len(real)):
-			ertrue = (real[x] - real[x-1]) ** 2
+		for x in range(1, len(true)):
+			ertrue = (true[x] - true[x-1]) ** 2
 			denominator.append(ertrue)
 		nmse = np.sum(nominator) / np.sum(denominator)
 		return nmse
