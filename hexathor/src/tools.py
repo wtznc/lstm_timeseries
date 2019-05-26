@@ -1,5 +1,5 @@
 '''
-Contains methods used for dealing and preprocessing time series data
+Contains methods used for dealing with and preprocessing time series data
 '''
 import fix_yahoo_finance as yf
 import matplotlib.pyplot as plt

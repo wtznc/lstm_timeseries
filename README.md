@@ -1,7 +1,3 @@
 # LSTM RNN for one-step ahead predictions
-// TO DO:
-Requirements,
-How to use,
-Datasets,
-Examples,
-Results
+###1. How to use?
+`python hexathor/src/ 'AAPL' 2010-1-1 6`

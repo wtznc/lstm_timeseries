@@ -129,6 +129,6 @@ def main(args):
 	#plt.show()
 
 	#lstm(train_size, past_values, epochs, units, data, batchsize, name):
-	lstm(0.67, 50, 50, 20, prices, 20, name)
+	lstm(0.67, 3, 1, 50, prices, 20, name)
 if __name__ == '__main__':
 	main()
