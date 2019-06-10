@@ -1,5 +1,6 @@
 # LSTM RNN for one-step ahead predictions
 
+![alt text](hexathor/docs/console.png)
 
 
 ```
